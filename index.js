@@ -15,4 +15,4 @@ app.use('/user',userRouter);
 app.use('/admin',adminRoute)
 app.use('/landing',landingRoute)
 
-app.listen(4000,()=>console.log('server started'));
+app.listen(process.env.PORT || 4000,()=>console.log('server started'));
