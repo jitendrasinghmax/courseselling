@@ -1,4 +1,5 @@
 const express=require('express');
+require('dotenv').config();
 const { userRouter } = require('./routeing/user');
 const { adminRoute } = require('./routeing/admin');
 const { mongoose } = require('mongoose');
@@ -6,7 +7,7 @@ const landingRoute = require('./routeing/landing');
 
 const app=express();
 
-mongoose.connect("mongodb+srv://js8322870:jiten.max@cluster0.aio6u.mongodb.net/course").then(()=>{
+mongoose.connect(process.env.MONGODB_URL_KEY).then(()=>{
     console.log("database connected")
 })
 
