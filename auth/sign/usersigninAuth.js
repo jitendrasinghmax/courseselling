@@ -9,9 +9,9 @@ module.exports=async(req,resp,next)=>{
         const token=jwt.sign({
            id:document._id
         },process.env.SECRET_KEY);
-        resp.json({isValid:true,token})
+        resp.json({sucess:true,token})
     }else{
-        resp.json({isValid:false})
+        resp.json({sucess:false,message:["invalid crendential"]})
     }
 }
 

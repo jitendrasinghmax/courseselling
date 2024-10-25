@@ -14,7 +14,10 @@ userRouter.post('/signin',signinValidation,usersigninAuth,(req,resp)=>{
     resp.send("this is usre signin route.");
 })
 
-
+userRouter.get('/details',user,async(req,resp)=>{
+    const details=await userModel.findOne({_id:req.body.id});
+    resp.json({sucess:true,details});
+})
 userRouter.post('/purchase',user,async (req,resp)=>{
     const response=await purchaseModel.create({
         userId:req.body.id,
